@@ -26,7 +26,7 @@
     self.timerBeam = [[JMTimerBeam alloc] initWithDuration:5 * 60
                                                orientation:orientation
                                                  thickness:3
-                                                     color:[NSColor blueColor]];
+                                                     color:[NSColor greenColor]];
     [self.timerBeam start];
 }
 
