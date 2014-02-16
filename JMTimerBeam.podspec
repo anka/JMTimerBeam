@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name             = "JMTimerBeam"
   s.version          = "0.1.0"
   s.summary          = "A decent timer beam displayed on top of your OSX screen."
-  s.homepage         = "http://EXAMPLE/NAME"
+  s.homepage         = "https://github.com/anka/JMTimerBeam"
   s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Andreas Katzian" => "andreas.katzian@jademind.com" }
