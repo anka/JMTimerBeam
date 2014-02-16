@@ -1,0 +1,14 @@
+PODS:
+  - JMTimerBeam (0.1.0)
+
+DEPENDENCIES:
+  - JMTimerBeam (from `../JMTimerBeam.podspec`)
+
+EXTERNAL SOURCES:
+  JMTimerBeam:
+    :path: ../JMTimerBeam.podspec
+
+SPEC CHECKSUMS:
+  JMTimerBeam: 00bc944e6f3ea3f44a1b6945540367e381ff468f
+
+COCOAPODS: 0.29.0
