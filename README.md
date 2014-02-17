@@ -51,7 +51,7 @@ it simply add the following line to your Podfile:
 
 ## Author
 
-Andreas Katzian, andreas.katzian@jademind.com
+Andreas Katzian, [JadeMind](http://www.jademind.com)
 
 ## License
 
