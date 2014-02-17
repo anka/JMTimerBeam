@@ -1,7 +1,7 @@
 # JMTimerBeam
 
-[![Version](http://cocoapod-badges.herokuapp.com/v/JMTimerBeam/badge.png)](http://cocoadocs.org/docsets/JMTimerBeam)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/JMTimerBeam/badge.png)](http://cocoadocs.org/docsets/JMTimerBeam)
+[![Version](https://cocoapod-badges.herokuapp.com/v/JMTimerBeam/badge.png)](http://cocoadocs.org/docsets/JMTimerBeam)
+[![Platform](https://cocoapod-badges.herokuapp.com/p/JMTimerBeam/badge.png)](http://cocoadocs.org/docsets/JMTimerBeam)
 
 JMTimerBeam enables you to show a decent beam on your OSX screen for visualizing a timing event. The beam will be attached to the top, right, bottom or left side of your screen and decreases steadily depending on the amount of time already elapsed.
 
