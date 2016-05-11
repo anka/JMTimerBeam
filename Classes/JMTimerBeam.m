@@ -13,8 +13,9 @@
 
 @property (nonatomic, assign) NSTimeInterval duration;
 @property (nonatomic, assign) JMTimerBeamOrientation orientation;
-@property (nonatomic, retain) NSColor *color;
 @property (nonatomic, assign) NSInteger thickness;
+@property (nonatomic, assign) BOOL reverse;
+@property (nonatomic, retain) NSColor *color;
 
 @property (nonatomic, retain) NSScreen *beamScreen;
 @property (nonatomic, retain) NSWindow *beamWindow;
@@ -36,6 +37,7 @@
 - (id) initWithDuration:(NSTimeInterval) duration
             orientation:(JMTimerBeamOrientation) orientation
               thickness:(NSInteger) thickness
+                reverse:(BOOL)reverse
                   color:(NSColor*) color
 {
     if(self = [super init])
@@ -45,7 +47,8 @@
         self.orientation = orientation;
         self.color = color;
         self.thickness = thickness;
-
+        self.reverse = reverse;
+        
         // Set default values
         self.startTime = nil;
         self.running = NO;
@@ -70,7 +73,7 @@
         self.beamWindow = window;
         
         // Create the beam view
-        NSRect beamRect = [self beamRectForProgress:1.f];
+        NSRect beamRect = [self beamRectForProgress:self.reverse ? 0 : 1];
 
         JMBeamView *view = [[JMBeamView alloc] initWithFrame:beamRect color:self.color];
         [self.beamWindow.contentView addSubview:view];
@@ -89,6 +92,7 @@
     return [self initWithDuration:duration
                       orientation:JMTimerBeamOrientationLeft
                         thickness:2
+                          reverse:NO
                             color:beamColor];
 }
 
@@ -148,7 +152,13 @@
     else
     {
         // Calculate progress of new beam rectangle and udpate the beam view
-        CGFloat progress = (self.duration - elapsed) / self.duration;
+        CGFloat progress;
+        if(self.reverse) {
+            progress = elapsed / self.duration;
+        }
+        else {
+            progress = (self.duration - elapsed) / self.duration;
+        }
         NSRect rect = [self beamRectForProgress:progress];
 
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -201,13 +211,17 @@
         case JMTimerBeamOrientationBottom:
         case JMTimerBeamOrientationTop:
         {
-            rect = NSMakeRect(screenSize.width - beamLength, 0, beamLength, self.thickness);
+            CGFloat x = screenSize.width-beamLength;
+//            if(self.reverse) x = 0;
+            rect = NSMakeRect(x, 0, beamLength, self.thickness);
             break;
         }
         case JMTimerBeamOrientationLeft:
         case JMTimerBeamOrientationRight:
         {
-            rect = NSMakeRect(0, 0, self.thickness, beamLength);
+            CGFloat y = 0;
+//            if(self.reverse) y += screenSize.height-beamLength;
+            rect = NSMakeRect(0, y, self.thickness, beamLength);
             break;
         }
     }

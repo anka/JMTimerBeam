@@ -23,10 +23,11 @@
         self.timerBeam = nil;
     }
 
-    self.timerBeam = [[JMTimerBeam alloc] initWithDuration:5 * 60
+    self.timerBeam = [[JMTimerBeam alloc] initWithDuration:self.duration.doubleValue
                                                orientation:orientation
-                                                 thickness:3
-                                                     color:[NSColor greenColor]];
+                                                 thickness:self.thickness.integerValue
+                                                   reverse:(self.reverse.state == NSOnState)
+                                                     color:self.color.color];
     [self.timerBeam start];
 }
 
