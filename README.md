@@ -3,7 +3,7 @@
 [![Version](https://cocoapod-badges.herokuapp.com/v/JMTimerBeam/badge.png)](http://cocoadocs.org/docsets/JMTimerBeam)
 [![Platform](https://cocoapod-badges.herokuapp.com/p/JMTimerBeam/badge.png)](http://cocoadocs.org/docsets/JMTimerBeam)
 
-JMTimerBeam enables you to show a decent beam on your OSX screen for visualizing a timing event. The beam will be attached to the top, right, bottom or left side of your screen and decreases steadily depending on the amount of time already elapsed.
+JMTimerBeam enables you to show a decent beam on your OSX screen for visualizing a timing event. The beam will be attached to the top, right, bottom or left side of your screen and decreases/increases steadily depending on the amount of time already elapsed.
 
 
 ## Screenshots
@@ -17,14 +17,16 @@ JMTimerBeam enables you to show a decent beam on your OSX screen for visualizing
 
 To create a new timer beam on your screen simply crete a new instance of `JMTimerBeam` with one of the following two methods:
 
-	/// Init new timer beam with given duration, orientation, thichkness and color
+	/// Init new timer beam with given duration, orientation, thickness, color and
+	/// reversed (empty to full) or not (full to empty) 
 	- (id) initWithDuration:(NSTimeInterval) duration
 	            orientation:(JMTimerBeamOrientation) orientation
 	              thickness:(NSInteger) thickness
+	                reverse:(BOOL)revserve
 	                  color:(NSColor*) color;
 
 	/// Initialize a new JMTimerBeam positioned on the left of the screen 
-	/// with decent thickness and green color
+	/// with decent thickness and green color, non reversed (full to empty)
 	- (id) initWithDuration:(NSTimeInterval) duration;
 
 After that use the `start` and `stop` method to start/stop the beam respectively. For positioning the beam on the screen use one of the following orientations:
@@ -52,6 +54,10 @@ it simply add the following line to your Podfile:
 ## Author
 
 Andreas Katzian, [JadeMind](http://www.jademind.com)
+
+## Contributors
+
+Dominik Pich, [Daij-Djan](http://www.pich.info)
 
 ## License
 
