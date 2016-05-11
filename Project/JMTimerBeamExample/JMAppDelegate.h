@@ -12,6 +12,11 @@
 @interface JMAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSButton *reverse;
+@property (weak) IBOutlet NSColorWell *color;
+@property (weak) IBOutlet NSTextField *thickness;
+@property (weak) IBOutlet NSTextField *duration;
+
 @property (nonatomic,strong) JMTimerBeam *timerBeam;
 
 @end
