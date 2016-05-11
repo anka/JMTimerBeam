@@ -31,7 +31,8 @@ typedef enum JMTimerBeamOrientations {
 
 @property (nonatomic, assign) id<JMTimerBeamDelegate> delegate;
 
-/// Init new timer beam with given duration, orientation, thichkness, reversed (empty to full) or not (full to empty) and color
+/// Init new timer beam with given duration, orientation, thickness, color and
+/// reversed (empty to full) or not (full to empty)
 - (id) initWithDuration:(NSTimeInterval) duration
             orientation:(JMTimerBeamOrientation) orientation
               thickness:(NSInteger) thickness
